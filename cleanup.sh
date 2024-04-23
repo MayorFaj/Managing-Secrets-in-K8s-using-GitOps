@@ -5,8 +5,8 @@ The following script cleans up the resources created in
 this repository gracefully.
 '
 
-declare AWS_REGION="eu-west-1"
-declare EKS_CLUSTER_NAME="eso-cftc"
+declare AWS_REGION="eu-central-1"
+declare EKS_CLUSTER_NAME="rias-touch-cluster"
 declare ESO_SYSTEM_NAMESPACE="external-secrets"
 
 cleanup_eso(){
@@ -40,8 +40,8 @@ cleanup_eso(){
   echo "Deleting the Kubernetes Service Account."
   echo "====================================================" 
 
-  ESO_K8S_SERVICE_ACCOUNT_NAME="eso-sa"
-  kubectl delete sa ${ESO_K8S_SERVICE_ACCOUNT_NAME}
+  ESO_SA_NAME="external-secrets-operator-sa"
+  kubectl delete sa ${ESO_SA_NAME}
 
   echo "===================================================="
   echo "Deleting the Kubernetes Namespace."
